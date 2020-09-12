@@ -8,12 +8,6 @@
 # Data description. The data was trait data collected from plant measurements. We started with ~504 plants, 
 # the garden data was somewhat clean, I removed a few rows that had missing values in it
 
-# I imported the data using the toolbar above, so no script, but the data title is "plasticgarden2" for plasticgarden2 gardent experiment
-
-# Trait value = Planting Date + Range + Soil Moisture Level + Block + Population within Range 
-#               + Block × Range + Range × Soil Moisture Level + 
-#                 Planting Date × Soil Moisture Level + Planting date × Range
-
 #Start
 rm(list=ls(all=TRUE)) #Clears previous work in R#maptools, 
 
