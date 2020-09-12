@@ -5,9 +5,6 @@
 # steps in our analyses. We used the trusty prcomp function of base R to reduce it to 3 variables.
 # This is the general code for the PCA. 
 
-# Data description. The data was trait data collected from plant measurements. We started with ~504 plants, 
-# the garden data was somewhat clean, I removed a few rows that had missing values in it
-
 #Start
 rm(list=ls(all=TRUE)) #Clears previous work in R#maptools, 
 
