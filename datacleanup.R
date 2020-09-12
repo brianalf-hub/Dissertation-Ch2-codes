@@ -5,6 +5,14 @@
 
 #This script was made for creating composite PCA variables for reananalysis for chapter 2
 
+# The garden expriment was started in spring 2017, sample processing and data entry was completed in 2018
+# Data cleanup was completed in 2019.
+
+# Data description. The data was trait data collected from plant measurements. We started with ~504 plants, but there was some mortality
+# so there are rows with a lot of missing data. There were three different data sheets, each plant had a ID name, so I used that ID for
+# the merge function in dplyr. Instead of imputing, I decided to drop those rows with missing values. If this was more of observational data, 
+# I would impute those missing values, but because this is an experiment, I wanted to be as rigid as possible. 
+
 rm(list=ls(all=TRUE)) # Poof, all gone. Tabula rasa!
 setwd("K:/Phenotypic plasticy")
 
@@ -88,6 +96,7 @@ rawdata$treatment <- factor(rawdata$treatment)
 rawdata$family <- factor(rawdata$family)
 rawdata$pop<- factor(rawdata$pop)
 
+# this is really important for naming and ordering the caterogical variables later for visualization
 rawdata$range <- factor(rawdata$range, levels=c("Native", "Invasive", "Landrace"))
 rawdata$treatment <- factor(rawdata$treatment, levels=c("250", "450", "750"))
 
@@ -114,7 +123,6 @@ lambda <- cox2[1, "box.x"]                 # Extract that lambda
 leafnumber.box <- (leafnumber ^ lambda - 1)/lambda   # Transform the original data
 plotNormalHistogram(leafnumber.box)
 shapiro.test(leafnumber.box)
-
 
 
 # Note: some variables that are ratio values need to be transformed (if required)
