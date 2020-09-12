@@ -1,5 +1,3 @@
-#Ch.2 PCA
-
 #Started 13-Jan-2019
 #Chapter Two of Brian Alfaro's dissertation, on phenotypic plasticity
 
