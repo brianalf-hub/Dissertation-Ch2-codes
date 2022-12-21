@@ -1,0 +1,7 @@
+rm(list=ls(all=TRUE)) # Poof, all gone. Tabula rasa!
+setwd("G:/RCodes/CH2") #This is just an example, you need to figure out the path to your directory folder
+
+#Import data set for basic statistics practice
+library(readr) #
+rawdata <-read_csv("G:/RCodes/CH2/plasticgarden2.csv")
+View(rawdata)
