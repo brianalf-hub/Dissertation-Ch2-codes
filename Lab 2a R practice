@@ -1,7 +1,14 @@
-rm(list=ls(all=TRUE)) # Poof, all gone. Tabula rasa!
-setwd("G:/RCodes/CH2") #This is just an example, you need to figure out the path to your directory folder
+# Welcome to Part 3: Introduction to R Studio, the third act of Lab Meeting 3. 
+# If you haven't done any coding before, well, you're in for a ride! R is a language designed by statisticians so that researchers can run complex statistical analyses
+# on their personal computers. It is open source, although there is a paid version. This is a very useful skill in the life and biomedical sciences, and someone who
+# can process data and perform even the simplest graphical summaries using R can get a job as a Data Analyst. 
 
-#Import data set for basic statistics practice
-library(readr) #
+
+rm(list=ls(all=TRUE)) # This line of code removes traces of codes that were ran on the ongoing session. 
+
+setwd("G:/RCodes/CH2") #Set your directory folder. This is just an example, you need to figure out the path to your directory folder, which is unique to your computer. 
+
+#Import data set
+library(readr)
 rawdata <-read_csv("G:/RCodes/CH2/plasticgarden2.csv")
 View(rawdata)
