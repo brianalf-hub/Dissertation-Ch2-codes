@@ -1,14 +1,41 @@
 # Welcome to Part 3: Introduction to R Studio, the third act of Lab Meeting 3. 
 # If you haven't done any coding before, well, you're in for a ride! R is a language designed by statisticians so that researchers can run complex statistical analyses
 # on their personal computers. It is open source, although there is a paid version. This is a very useful skill in the life and biomedical sciences, and someone who
-# can process data and perform even the simplest graphical summaries using R can get a job as a Data Analyst. 
+# can process data and perform even the simplest graphical summaries using R can get a job as a Data Analyst. At this point, you've taken Biology 151/L, 152/L, 
+# and perhaps Ecology; if that is the case, then you've done some data and some summary statistics in Google Sheets, Excel, or R. I would like you to level up in your
+# quantitative and analytical skill set, so I designed all of the analyses here in Genetics Lab to be done mostly in R. To get started, use the code below to analyze
+# phenotypic data. 
 
 
-rm(list=ls(all=TRUE)) # This line of code removes traces of codes that were ran on the ongoing session. 
+rm(list=ls(all=TRUE)) # This line of code removes traces of codes that were ran on the previous or ongoing session. 
 
 setwd("G:/RCodes/CH2") #Set your directory folder. This is just an example, you need to figure out the path to your directory folder, which is unique to your computer. 
+#note that R uses forward slashes instead of backslashes. 
 
 #Import data set
 library(readr)
 rawdata <-read_csv("G:/RCodes/CH2/plasticgarden2.csv")
 View(rawdata)
+
+#Install car, Hmisc, RColorBrewer, piecewiseSEM, MASS, splines, ggplot2, plyr, mi, rcompanion, agricolae, viridis, mgcv
+
+# call up the following installed packages-----------------
+library(car)
+library(Hmisc)
+library(RColorBrewer)
+library(piecewiseSEM)
+library(MASS)
+library(splines)
+library(ggplot2)
+library(plyr)
+library(mi)
+library(rcompanion)
+library(agricolae)
+library(viridis)
+library(mgcv)
+
+population <- rawdata$population
+type <- rawdata$type
+fruitcount <- rawdata$fruitcount
+stemcount <- rawdata$stemcount
+rawdata$type <- factor(rawdata$type, levels=c("Native", "Invasive", "Landrace"))
