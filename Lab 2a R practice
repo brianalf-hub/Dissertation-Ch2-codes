@@ -39,3 +39,13 @@ type <- rawdata$type
 fruitcount <- rawdata$fruitcount
 stemcount <- rawdata$stemcount
 rawdata$type <- factor(rawdata$type, levels=c("Native", "Invasive", "Landrace"))
+
+summary(lm.stem <- aov(stemcount ~ type + population, data = rawdata))
+
+summary(lm.fruit <- aov(fruitcount ~ type + population, data = rawdata))
+
+summary(lm.trait.corr <- aov(fruitcount ~ type + population + stemcount + type*stemcount, data = rawdata))
+
+HSD.test(relfit.hsd, "range", console=TRUE)
+
+
