@@ -17,6 +17,8 @@ library(readr)
 rawdata <-read_csv("G:/RCodes/CH2/plasticgarden2.csv")
 View(rawdata)
 
+# Examine the data. How many types are there? How many populations are there? 
+
 #Install car, Hmisc, RColorBrewer, piecewiseSEM, MASS, splines, ggplot2, plyr, mi, rcompanion, agricolae, viridis, mgcv
 
 # call up the following installed packages-----------------
@@ -34,16 +36,18 @@ library(agricolae)
 library(viridis)
 library(mgcv)
 
+# Use these lines of code to name the data fields (column headers) as variables
 population <- rawdata$population
 type <- rawdata$type
 fruitcount <- rawdata$fruitcount
 stemcount <- rawdata$stemcount
+
+# This line of code will tell R to treat type as a categorical variable.  
 rawdata$type <- factor(rawdata$type, levels=c("Native", "Invasive", "Landrace"))
 
+# These two lines of code will run and summarize a two-way analysis of variance test of phenotypic means among 
 summary(lm.stem <- aov(stemcount ~ type + population, data = rawdata))
-
 summary(lm.fruit <- aov(fruitcount ~ type + population, data = rawdata))
-
 summary(lm.trait.corr <- aov(fruitcount ~ type + population + stemcount + type*stemcount, data = rawdata))
 
 HSD.test(relfit.hsd, "range", console=TRUE)
