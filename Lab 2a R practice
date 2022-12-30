@@ -52,4 +52,52 @@ summary(lm.trait.corr <- aov(fruitcount ~ type + population + stemcount + type*s
 
 HSD.test(relfit.hsd, "range", console=TRUE)
 
+pal <- viridisLite::viridis(3)
+pal
+
+# This line of code uses the popular package, ggplot2 to generate box plots of mean stem count among plant types
+p <- ggplot(rawdata, aes(x=type, y=stemcount, fill=type)) + ylab("Stem count") + xlab("Plant type") +
+  guides(color=guide_legend(title="Type", alpha=0.75, title.position = "top", title.hjust = 0.5)) 
+p <- p + geom_boxplot(color="gray45", size=0.5, width=0.5, outlier.size = 2, alpha=1) + 
+  stat_summary(fun=mean, colour="gray38", geom="point", shape=18, size=5,show.legend = FALSE) 
+p <- p +  scale_fill_manual(values=pal)
+p <- p + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                            panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size=0.5))
+p <- p + theme(axis.title.x = element_blank(),
+               axis.text.x  = element_text(vjust=0.5, size=18, colour = "gray38"))
+p <- p+ theme(axis.title.y = element_text(size=18, colour = "gray38"),
+              axis.text.y  = element_text(size=16, colour = "gray38"))
+p <- p + theme(legend.position="none")
+print(p) 
+
+# This line of code uses the popular package, ggplot2 to generate plots of mean fruit count among plant types
+p <- ggplot(rawdata, aes(x=type, y=fruitcount, fill=type)) + ylab("Stem count") + xlab("Plant type") +
+  guides(color=guide_legend(title="Type", alpha=0.75, title.position = "top", title.hjust = 0.5)) 
+p <- p + geom_boxplot(color="gray45", size=0.5, width=0.5, outlier.size = 2, alpha=1) + 
+  stat_summary(fun=mean, colour="gray38", geom="point", shape=18, size=5,show.legend = FALSE) 
+p <- p +  scale_fill_manual(values=pal)
+p <- p + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                            panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size=0.5))
+p <- p + theme(axis.title.x = element_blank(),
+               axis.text.x  = element_text(vjust=0.5, size=18, colour = "gray38"))
+p <- p+ theme(axis.title.y = element_text(size=18, colour = "gray38"),
+              axis.text.y  = element_text(size=16, colour = "gray38"))
+p <- p + theme(legend.position="none")
+print(p) 
+
+# This line of code uses the popular package, ggplot2 to generate plots of mean fruit count among plant types
+p <- ggplot(rawdata, aes(x=type, y=fruitcount, fill=type)) + ylab("Stem count") + xlab("Plant type") +
+  guides(color=guide_legend(title="Type", alpha=0.75, title.position = "top", title.hjust = 0.5)) 
+p <- p + geom_boxplot(color="gray45", size=0.5, width=0.5, outlier.size = 2, alpha=1) + 
+  stat_summary(fun=mean, colour="gray38", geom="point", shape=18, size=5,show.legend = FALSE) 
+p <- p +  scale_fill_manual(values=pal)
+p <- p + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                            panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size=0.5))
+p <- p + theme(axis.title.x = element_blank(),
+               axis.text.x  = element_text(vjust=0.5, size=18, colour = "gray38"))
+p <- p+ theme(axis.title.y = element_text(size=18, colour = "gray38"),
+              axis.text.y  = element_text(size=16, colour = "gray38"))
+p <- p + theme(legend.position="none")
+print(p) 
+
 
