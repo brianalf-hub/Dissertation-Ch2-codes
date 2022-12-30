@@ -19,7 +19,7 @@ View(rawdata)
 
 # Examine the data. How many types are there? How many populations are there? 
 
-#Install car, Hmisc, RColorBrewer, piecewiseSEM, MASS, splines, ggplot2, plyr, mi, rcompanion, agricolae, viridis, mgcv
+# install.packages(car, Hmisc, RColorBrewer, piecewiseSEM, MASS, splines, ggplot2, plyr, mi, rcompanion, agricolae, viridis, mgcv)
 
 # call up the following installed packages-----------------
 library(car)
