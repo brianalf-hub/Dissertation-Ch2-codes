@@ -1,0 +1,26 @@
+trait <- ddply(rawdata,.(treatment,range),summarise, val = mean(Rep.PC1))
+p <- ggplot(rawdata, aes(x = factor(treatment), y =Rep.PC1, colour = range)) + 
+  geom_point(data = trait, aes(y = val)) +
+  geom_line(data =trait, aes(y =val, group = range)) + 
+  theme_bw() +  ylab("Reproductive Trait PC1\n(Individual fruit mass &\nReproductive biomass)") + 
+  xlab("Soil moisture level (ml/day)") 
+p <- p  + annotate("text", 
+                   x = c(2.55),
+                   y = c(1),
+                   label = "paste(italic(P), \" < 0.001\")", parse = TRUE,
+                   color="gray38", size=7)
+p <- p + annotate("text", 
+                  x = c(0.7, 0.7),
+                  y = c(-.85, 1.15),
+                  label = c("High", "Low"),
+                  color="gray38", size=7)
+p <- p + scale_y_reverse()
+p <- p +  scale_colour_manual(name  ="Range",values=c("#440154FF", "#21908CFF", "#FDE725FF"))
+p <- p + stat_summary(fun = mean, geom = "point", size=5, aes(group=range))
+p <- p + stat_summary(fun = mean, geom = "line", size=2, aes(group = range))
+p <- p + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                            panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size=0.25))
+p <- p + theme(axis.title.x = element_text(size=18, colour = "gray38"), axis.text.x  = element_text(vjust=0.5, size=18,  colour = "gray38"))
+p <- p + theme(axis.title.y = element_text(size=18, colour = "gray38"), axis.text.y  = element_text(vjust=0.5, size=18,  colour = "gray38"))
+p4<- p + theme(legend.position="none")
+print(p4)
